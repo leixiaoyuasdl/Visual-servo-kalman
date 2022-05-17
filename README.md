@@ -11,4 +11,3 @@ rosrun visual_servo_kalman setgoal //设置目标图像
 ```
 rosrun visual_servo_kalman kalman_6dof //基于kalman滤波进行控制
 ```
-x-special/nautilus-clipboard
