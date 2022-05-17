@@ -55,6 +55,7 @@
   <depend>cv_bridge</depend>
   <depend>image_transport</depend>
   <depend>roscpp</depend>
+  <depend>rospy</depend>
 
   <exec_depend>moveit_core</exec_depend>
   <exec_depend>moveit_ros_planning_interface</exec_depend>

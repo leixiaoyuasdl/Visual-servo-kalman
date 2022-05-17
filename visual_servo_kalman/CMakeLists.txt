@@ -14,12 +14,19 @@ find_package(catkin REQUIRED COMPONENTS
         moveit_ros_perception
         moveit_ros_planning_interface
         )
-AUX_SOURCE_DIRECTORY(src source_file)
+        
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES probot_demo
+   CATKIN_DEPENDS roscpp rospy moveit_core moveit_ros_planning_interface
+#  DEPENDS system_lib
+)
+AUX_SOURCE_DIRECTORY(src/lib source_file)
 
 include_directories(include ${orocos_kdl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(kalman_6dof kalman_6dof.cpp ${source_file} )
+ADD_EXECUTABLE(kalman_6dof src/kalman_6dof.cpp ${source_file} )
 target_link_libraries(kalman_6dof ${orocos_kdl_LIBRARIES} ${OpenCV_LIBS} ${catkin_LIBRARIES})
 
-ADD_EXECUTABLE(setgoal setgoal.cpp ${source_file} )
+ADD_EXECUTABLE(setgoal src/setgoal.cpp ${source_file} )
 target_link_libraries(setgoal ${orocos_kdl_LIBRARIES} ${OpenCV_LIBS} ${catkin_LIBRARIES})
